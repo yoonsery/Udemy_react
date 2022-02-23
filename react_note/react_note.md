@@ -24,3 +24,8 @@ React allows you to create re-usable & reactive components consisting of HTML an
 Declarative Approach  
 ⬇️  
 Define the desired target state(s) and let React figure out the actual javaScript DOM instructions
+
+## Props
+
+Components can not just use data stored in other components  
+You can pass data to custom component by adding an attribute. Inside of that component you can acess to all these attributes
