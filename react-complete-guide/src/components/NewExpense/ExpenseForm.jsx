@@ -27,18 +27,19 @@ function ExpenseForm(props) {
 
   function dateChangeHandler(e) {
     setUserInput((prevState) => {
-      return { ...prevState, date: e.target.value };
+      return { ...prevState, date: new Date(e.target.value) };
     });
   }
 
   function submitHandler(e) {
     e.preventDefault();
+
+    props.onSaveExpenseData(userInput);
     setUserInput({
       title: '',
       amount: '',
       date: '',
     });
-    props.onSaveExpenseData(userInput);
   }
 
   return (
