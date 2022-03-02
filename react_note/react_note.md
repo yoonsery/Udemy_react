@@ -29,3 +29,11 @@ Define the desired target state(s) and let React figure out the actual javaScrip
 
 Components can not just use data stored in other components  
 You can pass data to custom component by adding an attribute. Inside of that component you can acess to all these attributes
+
+<hr>
+
+## React Component Styling
+
+1. Conditional & Dynamic Styles
+2. Styled Components
+3. CSS Modules
