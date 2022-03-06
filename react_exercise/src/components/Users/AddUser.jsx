@@ -23,7 +23,7 @@ function AddUser(props) {
       props.onError(userName);
       return;
     }
-    if (userAge < 0) {
+    if (+userAge < 0) {
       props.onError(userAge);
       return;
     }
