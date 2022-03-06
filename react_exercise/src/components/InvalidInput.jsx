@@ -4,7 +4,6 @@ import Card from './UI/Card';
 
 function InvalidInput(props) {
   console.log(props);
-  // const { onName, onAge } = props;
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -14,9 +13,8 @@ function InvalidInput(props) {
     <Card>
       <h2>Invalid input</h2>
       <p>Please enter a valid {props.message} </p>
-      {/* <p>Please enter a valid {props.onAge} </p> */}
       <form onSubmit={handleSubmit}>
-        <Button name={'Okay'} />
+        <Button type="submit">Okay</Button>
       </form>
     </Card>
   );

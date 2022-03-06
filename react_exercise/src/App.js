@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import AddUser from './components/Users/AddUser';
 import InvalidInput from './components/InvalidInput';
-import Users from './components/Users';
+import Users from './components/Users/Users';
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -35,9 +35,11 @@ function App() {
   return (
     <div>
       <AddUser onAddUser={addUserHandler} onError={handleError} />
-      {<Users usersInfo={users} />}
-      {isError && (
+
+      {isError ? (
         <InvalidInput onClick={handleErrorClick} message={errMessage} />
+      ) : (
+        <Users usersInfo={users} />
       )}
     </div>
   );
