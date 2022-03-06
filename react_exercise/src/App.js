@@ -36,7 +36,7 @@ function App() {
       <AddUser onAddUser={addUserHandler} onError={handleError} />
       {error && (
         <ErrorModal
-          onClick={handleErrorClick}
+          onHandleError={handleErrorClick}
           title={error.title}
           message={error.message}
         />

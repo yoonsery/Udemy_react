@@ -6,7 +6,7 @@ import styles from './ErrorModal.module.css';
 function ErrorModal(props) {
   return (
     <>
-      <div className={styles.backdrop} onClick={props.onClick}>
+      <div className={styles.backdrop} onClick={props.onHandleError}>
         <Card className={styles.modal}>
           <header className={styles.header}>
             <h2>{props.title}</h2>
@@ -15,7 +15,7 @@ function ErrorModal(props) {
             <p>Please enter a valid {props.message} </p>
           </div>
           <footer className={styles.actions}>
-            <Button onClick={props.onClick} type="submit">
+            <Button onClick={props.onHandleError} type="submit">
               Okay
             </Button>
           </footer>
