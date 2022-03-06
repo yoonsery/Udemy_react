@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import Button from './UI/Button';
+import Button from '../UI/Button';
+import Card from '../UI/Card';
+import styles from './AddUser.module.css';
 
-function UserAddForm(props) {
+function AddUser(props) {
   const [userName, setUserName] = useState('');
   const [userAge, setUserAge] = useState('');
 
@@ -36,19 +38,28 @@ function UserAddForm(props) {
   }
 
   return (
-    <form onSubmit={submitHandler}>
-      <div>
-        <label>Username</label>
-        <input type="text" value={userName} onChange={userNameHandler}></input>
-      </div>
-      <div>
-        <label>Age (Years)</label>
-        <input type="number" value={userAge} onChange={userAgeHandler}></input>
-      </div>
+    <Card className={styles.input}>
+      <form onSubmit={submitHandler}>
+        <label htmlFor="username">Username</label>
+        <input
+          id="username"
+          type="text"
+          value={userName}
+          onChange={userNameHandler}
+        ></input>
 
-      <Button name={'Add User'} />
-    </form>
+        <label htmlFor="age">Age (Years)</label>
+        <input
+          id="age"
+          type="number"
+          value={userAge}
+          onChange={userAgeHandler}
+        ></input>
+
+        <Button name={'Add User'} />
+      </form>
+    </Card>
   );
 }
 
-export default UserAddForm;
+export default AddUser;

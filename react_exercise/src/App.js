@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import UserAddForm from './components/UserAddForm';
+import AddUser from './components/Users/AddUser';
 import InvalidInput from './components/InvalidInput';
 import Users from './components/Users';
 
@@ -34,7 +34,7 @@ function App() {
 
   return (
     <div>
-      <UserAddForm onAddUser={addUserHandler} onError={handleError} />
+      <AddUser onAddUser={addUserHandler} onError={handleError} />
       {<Users usersInfo={users} />}
       {isError && (
         <InvalidInput onClick={handleErrorClick} message={errMessage} />
