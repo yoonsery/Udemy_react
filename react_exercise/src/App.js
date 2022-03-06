@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import AddUser from './components/Users/AddUser';
-import InvalidInput from './components/InvalidInput';
+import ErrorModal from './components/UI/ErrorModal';
 import Users from './components/Users/Users';
 
 function App() {
   const [users, setUsers] = useState([]);
-  const [isError, setIsError] = useState(false);
-  const [errMessage, setErrMessage] = useState('');
+  const [error, setError] = useState();
 
   function addUserHandler(user) {
     setUsers((prevUsers) => {
@@ -15,30 +14,35 @@ function App() {
   }
 
   function handleError(message) {
-    setIsError(true);
     if (message === '') {
-      console.log(`Please enter a name`);
-      setErrMessage(`name and age(non-empty values).`);
+      setError({
+        title: 'Invalid input',
+        message: 'name and age (non-empty values).',
+      });
     } else {
-      console.log(`Invalid age`);
-      setErrMessage(`age (> 0).`);
+      setError({
+        title: 'Invalid age',
+        message: 'age (> 0).',
+      });
     }
   }
 
   function handleErrorClick() {
-    setIsError(false);
+    setError(null);
   }
 
   return (
-    <div>
+    <>
       <AddUser onAddUser={addUserHandler} onError={handleError} />
-
-      {isError ? (
-        <InvalidInput onClick={handleErrorClick} message={errMessage} />
-      ) : (
-        <Users usersInfo={users} />
+      {error && (
+        <ErrorModal
+          onClick={handleErrorClick}
+          title={error.title}
+          message={error.message}
+        />
       )}
-    </div>
+      <Users usersInfo={users} />
+    </>
   );
 }
 
