@@ -17,15 +17,12 @@ function App() {
   function handleError(message) {
     setIsError(true);
     if (message === '') {
-      console.log(`error is name`);
+      console.log(`Please enter a name`);
       setErrMessage(`name and age(non-empty values).`);
     } else {
-      console.log(`error is number`);
+      console.log(`Invalid age`);
       setErrMessage(`age (> 0).`);
     }
-
-    // return `name and age(non-empty values).`;
-    // return `age (> 0).`;
   }
 
   function handleErrorClick() {
