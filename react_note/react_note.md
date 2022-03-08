@@ -67,3 +67,34 @@ Use `<React.Fragment></React.Fragment>` or `<></>`
 ### Understanding React Portals
 
 "Semantically" and from a "clean HTML structure" perspective, having nested modal isn't ideal. It is an "overlay to the entire page" after all
+
+## Effects, Reducers & Context
+
+- Working with (side) effects
+- Managing more complex state with Reducers
+- Managing App-wide or Component-wide state with Context
+
+### What is an `Effect` (or a `Side Effect`)?
+
+- Main job: Render UI & React to User Input
+
+  - Evaluate & Render JSX
+  - Manage State & Props
+  - React to (User) Events & Input
+  - Re-evaluate Component upon State & Prop Changes
+
+- Side Effects
+  - Store Data in browser storage
+  - Send HTTP Requests to backend servers
+  - Set & Manage timers...  
+    : These tasks `must happen outside of the normal component evaluation` and render cycle - especially since they might block / delay rendering(eg. HTTP requests)
+
+### Handling side effects with the useEffect() hook
+
+```js
+useEffect(() => { ... }, [ dependencies ]);
+```
+
+- first parameter: A fucntion that should be executed AFTER every component evaluation IF the specified dependencies changed
+
+- second parameter: Dependencies of this effect - the function only runs if the dependencies changed
