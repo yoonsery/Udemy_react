@@ -8,7 +8,11 @@ function Users(props) {
     <Card className={styles.users}>
       <ul>
         {props.usersInfo.map((user) => (
-          <User name={user.userName} age={user.userAge} key={user.userId} />
+          <User
+            name={user.enteredName}
+            age={user.enteredAge}
+            key={user.userId}
+          />
         ))}
       </ul>
     </Card>
