@@ -98,3 +98,13 @@ useEffect(() => { ... }, [ dependencies ]);
 - first parameter: A fucntion that should be executed AFTER every component evaluation IF the specified dependencies changed
 
 - second parameter: Dependencies of this effect - the function only runs if the dependencies changed
+
+### useReducer() for state management
+
+when you have more `complex state` (multiple states, multiple ways of changing) or `dependencies` to other states, using useState() is hard. `useReducer()` can be used as a replacement for useState() if you need **more powerful state management**
+
+### understanding useReducer()
+
+```js
+const [state, dispatchFn] = useReducer(reducerFn, initialState, initFn);
+```
