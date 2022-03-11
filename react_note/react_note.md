@@ -131,3 +131,15 @@ React Context
 
 - is NOT optimized for high frequency changes 👉🏻 Redux
 - shouldn't be used to replace ALL component communications and props 👉🏻 Component should still be configurable via props and short "prop chains" might not need any replacement
+
+### Rules of Hooks
+
+#### Only call `React Hooks`
+
+- in React Functions (React Component Functions / Custom Hooks)
+
+- at the Top Level (Do not call them in nested functions / any block statements)
+
+#### `useEffect`
+
+- ALWAYS add everything you refer to inside of useEffect() as a dependency
