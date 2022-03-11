@@ -124,3 +124,10 @@ using useState() becomes cumbersome or getting a lot of bugs / unintended behavi
   - Great if you need more power
   - Should be considered if you have related pieces of state / data
   - Can be helpful if you have more complex state updates
+
+### Context Limitations
+
+React Context
+
+- is NOT optimized for high frequency changes 👉🏻 Redux
+- shouldn't be used to replace ALL component communications and props 👉🏻 Component should still be configurable via props and short "prop chains" might not need any replacement
