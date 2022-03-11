@@ -1,7 +1,17 @@
-### let, const
+### let, const (block-scoped)
 
 - `let` is for variable values
 - `const` is for constant values
+
+let, const는 호이스팅되더라도 TDZ (Temporal Dead Zone)의 영향을 받는다  
+(TDZ에 있는 코드는 사용할 수 없음)
+
+- let
+
+  - ① 선언단계, ② 초기화 단계 (그래서 referenceError 발생), ③ 할당단계 (재할당이 가능)
+
+- const
+  - ① 선언 + 초기화 + 할당
 
 ### Arrow function
 
