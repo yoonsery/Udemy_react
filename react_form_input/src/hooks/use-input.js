@@ -10,15 +10,23 @@ const useInput = (validateValue) => {
   const valueChangeHandler = (e) => {
     setEnteredValue(e.target.value);
   };
+
   const inputBlurHandler = (e) => {
     setIsTouched(true);
   };
 
+  const reset = () => {
+    setEnteredValue('');
+    setIsTouched(false);
+  };
+
   return {
     value: enteredValue,
+    isValid: valueIsValid,
     hasError,
     valueChangeHandler,
     inputBlurHandler,
+    reset,
   };
 };
 
