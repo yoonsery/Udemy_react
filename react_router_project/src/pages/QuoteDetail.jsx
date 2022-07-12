@@ -6,7 +6,8 @@ const QuoteDetail = () => {
   console.log(param.quoteId);
   return (
     <>
-      <h1>Quote Detail Page {param.quoteId}</h1>
+      <h1>Quote Detail Page</h1>
+      <p>{param.quoteId}</p>
       <Route path={`/quotes/${param.quoteId}/comments`}>
         {/* <Route path="/quotes/:quoteId/comments"> */} you can also use this
         code
