@@ -1,4 +1,10 @@
-import { Link, Route, useParams, useRouteMatch } from 'react-router-dom';
+import {
+  Link,
+  Route,
+  Routes,
+  useParams,
+  useRouteMatch,
+} from 'react-router-dom';
 
 import HighlightedQuote from '../components/quotes/HighlightedQuote';
 import { getSingleQuote } from '../lib/api';
@@ -6,7 +12,6 @@ import Comments from '../components/comments/Comments';
 import useHttp from '../hooks/use-http';
 import { useEffect } from 'react';
 import LoadingSpinner from '../components/UI/LoadingSpinner';
-import NoQuotesFound from '../components/quotes/NoQuotesFound';
 
 const QuoteDetail = () => {
   const params = useParams();
@@ -44,16 +49,19 @@ const QuoteDetail = () => {
   return (
     <>
       <HighlightedQuote text={loadedQuote.text} author={loadedQuote.author} />
-      <Route path={match.path} exact>
-        <div className="centered">
-          <Link className="btn--flat" to={`${match.url}/comments`}>
-            Load Comments
-          </Link>
-        </div>
-      </Route>
-      <Route path={`${match.path}/comments`}>
-        <Comments />
-      </Route>
+      <Routes>
+        <Route
+          path={`${match.path}/*`} // relative라서 현재 있는 위치의 url은 지워준다..
+          element={
+            <div className="centered">
+              <Link className="btn--flat" to="comments">
+                Load Comments
+              </Link>
+            </div>
+          }
+        />
+        <Route path="comments" element={<Comments />} />
+      </Routes>
     </>
   );
 };
