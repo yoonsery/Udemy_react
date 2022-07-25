@@ -1,5 +1,5 @@
 const FIREBASE_DOMAIN =
-  'https://react-http-d4998-default-rtdb.asia-southeast1.firebasedatabase.app';
+  'https://react-quote-9c261-default-rtdb.asia-southeast1.firebasedatabase.app/';
 
 export async function getAllQuotes() {
   const response = await fetch(`${FIREBASE_DOMAIN}/quotes.json`);
@@ -58,7 +58,7 @@ export async function addQuote(quoteData) {
 
 export async function addComment(requestData) {
   const response = await fetch(
-    `https://react-http-d4998-default-rtdb.asia-southeast1.firebasedatabase.app/comments/${requestData.quoteId}.json`,
+    `https://react-quote-9c261-default-rtdb.asia-southeast1.firebasedatabase.app/comments/${requestData.quoteId}.json`,
     {
       method: 'POST',
       body: JSON.stringify(requestData.commentData),
