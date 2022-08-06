@@ -24,6 +24,24 @@ function HomePage(props) {
   return <MeetupList meetups={props.meetups} />;
 }
 
+// ✨ If you have a data that changes multiple times every second, getServerSideProps are better
+// 🤔 Need to wait for the page to be generated on every incoming request
+export async function getServerSideProps(context) {
+  const req = context.req;
+  const res = context.res;
+
+  // fetch data from an API or a file system
+
+  return {
+    props: {
+      meetups: DUMMY_MEETUPS,
+    },
+  };
+}
+
+// ✨ If you don't need to the request object(eg. authentication) getStaticProps is better choice than getServerSideProps.
+//  faster than regenerating & fetching data for every incoming request
+
 export async function getStaticProps() {
   // fetch data from an API
   return {
