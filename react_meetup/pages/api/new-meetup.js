@@ -3,7 +3,7 @@ import { MongoClient } from 'mongodb';
 //  /api/new-meetup
 //  POST /api/new-meetup
 
-function handler(req, res) {
+async function handler(req, res) {
   if (req.method === 'POST') {
     const data = req.body;
 
@@ -20,7 +20,7 @@ function handler(req, res) {
 
     client.close();
 
-    res.status(201).json({message: 'Meetup inserted!'})
+    res.status(201).json({ message: 'Meetup inserted!' });
   }
 }
 
