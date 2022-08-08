@@ -59,7 +59,7 @@ export async function getStaticProps() {
         id: meetup._id.toString(),
       })),
     },
-    revalidate: 3600, // 초단위로 설정하므로 1시간
+    revalidate: 10, // 초단위로 설정
   };
 }
 
