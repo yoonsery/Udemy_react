@@ -1,8 +1,20 @@
+import Head from 'next/head';
 import MeetupList from '../components/meetups/MeetupList';
 import { MongoClient } from 'mongodb';
 
 function HomePage(props) {
-  return <MeetupList meetups={props.meetups} />;
+  return (
+    <>
+      <Head>
+        <title>React Meetups</title>
+        <meta
+          name="description"
+          content="To make meetup page to practice React & nextJS"
+        />
+      </Head>
+      <MeetupList meetups={props.meetups} />
+    </>
+  );
 }
 
 // ✨ If you have a data that changes multiple times every second, getServerSideProps are better
