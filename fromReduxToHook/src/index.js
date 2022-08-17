@@ -5,8 +5,10 @@ import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import configureStore from './hooks-store/products-store';
+import configureCounterStore from './hooks-store/counter-store';
 
 configureStore();
+configureCounterStore();
 
 ReactDOM.render(
   <BrowserRouter>
